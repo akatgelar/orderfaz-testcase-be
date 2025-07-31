@@ -24,7 +24,7 @@ func ConnnectDatabasePostgres() {
 	DB_POSTGRES_DATABASE := os.Getenv("DB_POSTGRES_DATABASE")
  
 	db, err := gorm.Open(postgres.New(postgres.Config{
-		DSN: "host="+DB_POSTGRES_HOST+" user="+DB_POSTGRES_USER+" password="+DB_POSTGRES_PASS+" dbname="+DB_POSTGRES_DATABASE+" port="+DB_POSTGRES_PORT+" sslmode=disable TimeZone=Asia/Jakarta", 
+		DSN: "host="+DB_POSTGRES_HOST+" user="+DB_POSTGRES_USER+" password="+DB_POSTGRES_PASS+" dbname="+DB_POSTGRES_DATABASE+" port="+DB_POSTGRES_PORT+" sslmode=disable", 
 		PreferSimpleProtocol: true,
 	}), &gorm.Config{})
   
