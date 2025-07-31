@@ -1,0 +1,8 @@
+services:
+  orderfaz-testcase-be:
+    # build: .
+    image: ghcr.io/akatgelar/orderfaz-testcase-be:latest
+    container_name: 'orderfaz-testcase-be' 
+    ports:
+      - "6001:8080"
+    restart: always
