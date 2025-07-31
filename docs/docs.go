@@ -121,6 +121,11 @@ const docTemplate = `{
         },
         "/auth/validate": {
             "get": {
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ],
                 "description": "Get payload data auth",
                 "consumes": [
                     "application/json"

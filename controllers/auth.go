@@ -174,6 +174,7 @@ func AuthLogin(c *gin.Context) models.BaseResponse  {
 // @Failure      404  {object}  models.BaseResponse
 // @Failure      500  {object}  models.BaseResponse
 // @Router       /auth/validate [get]
+// @Security Token
 func AuthValidate(c *gin.Context) models.BaseResponse  {
 	err := godotenv.Load()
 	if err != nil { 

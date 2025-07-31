@@ -133,6 +133,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/models.BaseResponse'
+      security:
+      - Token: []
       summary: Get payload data auth
       tags:
       - Auth
