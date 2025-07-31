@@ -11,7 +11,7 @@ func Swager(g *gin.RouterGroup) {
 	docs.SwaggerInfo.Title = "Orderfaz Testcase API"
 	docs.SwaggerInfo.Description = "This is a sample server."
 	docs.SwaggerInfo.Version = "1.0"
-	docs.SwaggerInfo.Host = "https://orderfaz-testcase-be.akatgelar.app/"
+	docs.SwaggerInfo.Host = "orderfaz-testcase-be.akatgelar.app"
 	docs.SwaggerInfo.BasePath = "/"
 	docs.SwaggerInfo.Schemes = []string{"https"} 
 	g.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
