@@ -1,0 +1,241 @@
+definitions:
+  models.Auth:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      id:
+        type: string
+      msisdn:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  models.AuthLogin:
+    properties:
+      msisdn:
+        type: string
+      password:
+        type: string
+    type: object
+  models.BaseResponse:
+    properties:
+      data: {}
+      message:
+        type: string
+      status:
+        type: boolean
+    type: object
+  models.Logistics:
+    properties:
+      amount:
+        type: number
+      created_at:
+        type: string
+      created_by:
+        type: string
+      destination_name:
+        type: string
+      duration:
+        type: string
+      id:
+        type: string
+      is_active:
+        type: boolean
+      logistic_name:
+        type: string
+      origin_name:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Post login payload
+      parameters:
+      - description: register
+        in: body
+        name: auth
+        required: true
+        schema:
+          $ref: '#/definitions/models.AuthLogin'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+      summary: Post login payload
+      tags:
+      - Auth
+  /auth/register:
+    post:
+      consumes:
+      - application/json
+      description: Post register payload
+      parameters:
+      - description: register
+        in: body
+        name: auth
+        required: true
+        schema:
+          $ref: '#/definitions/models.Auth'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+      summary: Post register payload
+      tags:
+      - Auth
+  /auth/validate:
+    get:
+      consumes:
+      - application/json
+      description: Get payload data auth
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+      summary: Get payload data auth
+      tags:
+      - Auth
+  /logistic:
+    get:
+      consumes:
+      - application/json
+      description: Get logistics data
+      parameters:
+      - description: logistic_name=jne
+        in: query
+        name: logistic_name
+        type: boolean
+      - description: origin_name=jakarta
+        in: query
+        name: origin_name
+        type: boolean
+      - description: destination_name=bandung
+        in: query
+        name: destination_name
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+      security:
+      - Token: []
+      summary: Get logistics data
+      tags:
+      - Logistic
+    post:
+      consumes:
+      - application/json
+      description: Create logistics data
+      parameters:
+      - description: logistic
+        in: body
+        name: auth
+        required: true
+        schema:
+          $ref: '#/definitions/models.Logistics'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.BaseResponse'
+      security:
+      - Token: []
+      summary: Create logistics data
+      tags:
+      - Logistic
+securityDefinitions:
+  Token:
+    description: Provide the JWT token directly in the Authorization header without
+      the "Bearer" prefix.
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
