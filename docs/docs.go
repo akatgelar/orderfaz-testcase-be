@@ -123,7 +123,7 @@ const docTemplate = `{
             "get": {
                 "security": [
                     {
-                        "Token": []
+                        "Bearer": []
                     }
                 ],
                 "description": "Get payload data auth",
@@ -169,7 +169,7 @@ const docTemplate = `{
             "get": {
                 "security": [
                     {
-                        "Token": []
+                        "Bearer": []
                     }
                 ],
                 "description": "Get logistics data",
@@ -185,20 +185,20 @@ const docTemplate = `{
                 "summary": "Get logistics data",
                 "parameters": [
                     {
-                        "type": "boolean",
-                        "description": "logistic_name=jne",
+                        "type": "string",
+                        "description": "example : jne",
                         "name": "logistic_name",
                         "in": "query"
                     },
                     {
-                        "type": "boolean",
-                        "description": "origin_name=jakarta",
+                        "type": "string",
+                        "description": "example : jakarta",
                         "name": "origin_name",
                         "in": "query"
                     },
                     {
-                        "type": "boolean",
-                        "description": "destination_name=bandung",
+                        "type": "string",
+                        "description": "example : bandung",
                         "name": "destination_name",
                         "in": "query"
                     }
@@ -233,7 +233,7 @@ const docTemplate = `{
             "post": {
                 "security": [
                     {
-                        "Token": []
+                        "Bearer": []
                     }
                 ],
                 "description": "Create logistics data",

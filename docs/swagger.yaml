@@ -134,7 +134,7 @@ paths:
           schema:
             $ref: '#/definitions/models.BaseResponse'
       security:
-      - Token: []
+      - Bearer: []
       summary: Get payload data auth
       tags:
       - Auth
@@ -144,18 +144,18 @@ paths:
       - application/json
       description: Get logistics data
       parameters:
-      - description: logistic_name=jne
+      - description: 'example : jne'
         in: query
         name: logistic_name
-        type: boolean
-      - description: origin_name=jakarta
+        type: string
+      - description: 'example : jakarta'
         in: query
         name: origin_name
-        type: boolean
-      - description: destination_name=bandung
+        type: string
+      - description: 'example : bandung'
         in: query
         name: destination_name
-        type: boolean
+        type: string
       produces:
       - application/json
       responses:
@@ -176,7 +176,7 @@ paths:
           schema:
             $ref: '#/definitions/models.BaseResponse'
       security:
-      - Token: []
+      - Bearer: []
       summary: Get logistics data
       tags:
       - Logistic
@@ -211,7 +211,7 @@ paths:
           schema:
             $ref: '#/definitions/models.BaseResponse'
       security:
-      - Token: []
+      - Bearer: []
       summary: Create logistics data
       tags:
       - Logistic

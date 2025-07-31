@@ -15,15 +15,15 @@ import (
 // @Tags         Logistic
 // @Accept       json
 // @Produce      json
-// @Param        logistic_name    query     boolean  false  "logistic_name=jne"
-// @Param        origin_name      query     boolean  false  "origin_name=jakarta"
-// @Param        destination_name      query     boolean  false  "destination_name=bandung"
+// @Param        logistic_name    query     string  false "example : jne"
+// @Param        origin_name      query     string  false "example : jakarta"
+// @Param        destination_name      query     string  false "example : bandung"
 // @Success      200  {object}  models.BaseResponse
 // @Failure      400  {object}  models.BaseResponse
 // @Failure      404  {object}  models.BaseResponse
 // @Failure      500  {object}  models.BaseResponse
 // @Router       /logistic [get]
-// @Security Token
+// @Security Bearer
 func LogisticRead(c *gin.Context, logistic_name string, origin_name string, destination_name string) models.BaseResponse {
 	db := database.DB_POSTGRES
 	   
@@ -65,7 +65,7 @@ func LogisticRead(c *gin.Context, logistic_name string, origin_name string, dest
 // @Failure      404  {object}  models.BaseResponse
 // @Failure      500  {object}  models.BaseResponse
 // @Router       /logistic [post] 
-// @Security Token
+// @Security Bearer
 func LogisticCreate(c *gin.Context) models.BaseResponse {
 	db := database.DB_POSTGRES
 	  
