@@ -87,7 +87,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.Auth"
+                            "$ref": "#/definitions/models.AuthRegister"
                         }
                     }
                 ],
@@ -249,7 +249,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.Logistics"
+                            "$ref": "#/definitions/models.LogisticsCreate"
                         }
                     }
                 ],
@@ -283,18 +283,20 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "models.Auth": {
+        "models.AuthLogin": {
             "type": "object",
             "properties": {
-                "created_at": {
+                "msisdn": {
                     "type": "string"
                 },
-                "created_by": {
+                "password": {
                     "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
+                }
+            }
+        },
+        "models.AuthRegister": {
+            "type": "object",
+            "properties": {
                 "msisdn": {
                     "type": "string"
                 },
@@ -305,17 +307,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "username": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.AuthLogin": {
-            "type": "object",
-            "properties": {
-                "msisdn": {
-                    "type": "string"
-                },
-                "password": {
                     "type": "string"
                 }
             }
@@ -332,17 +323,11 @@ const docTemplate = `{
                 }
             }
         },
-        "models.Logistics": {
+        "models.LogisticsCreate": {
             "type": "object",
             "properties": {
                 "amount": {
                     "type": "number"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "created_by": {
-                    "type": "string"
                 },
                 "destination_name": {
                     "type": "string"
@@ -350,30 +335,18 @@ const docTemplate = `{
                 "duration": {
                     "type": "string"
                 },
-                "id": {
-                    "type": "string"
-                },
-                "is_active": {
-                    "type": "boolean"
-                },
                 "logistic_name": {
                     "type": "string"
                 },
                 "origin_name": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "updated_by": {
                     "type": "string"
                 }
             }
         }
     },
     "securityDefinitions": {
-        "Token": {
-            "description": "Provide the JWT token directly in the Authorization header without the \"Bearer\" prefix.",
+        "Bearer": {
+            "description": "Type \"Bearer\" followed by a space and JWT token.",
             "type": "apiKey",
             "name": "Authorization",
             "in": "header"

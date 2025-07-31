@@ -17,6 +17,13 @@ type AuthLogin struct {
 	Password			string `json:"password"` 
 }
 
+type AuthRegister struct {  
+	Msisdn				string `json:"msisdn"`
+	Username			string `json:"username"`
+	Password			string `json:"password"`
+	Name				string `json:"name"`   
+}
+
 // Override default table name
 func (Auth) TableName() string {
     return "auth"

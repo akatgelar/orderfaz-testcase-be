@@ -21,7 +21,7 @@ import (
 // @Tags         Auth
 // @Accept       json
 // @Produce      json
-// @Param        auth body  models.Auth  true "register"
+// @Param        auth body  models.AuthRegister true "register"
 // @Success      200  {object}  models.BaseResponse
 // @Failure      400  {object}  models.BaseResponse
 // @Failure      404  {object}  models.BaseResponse

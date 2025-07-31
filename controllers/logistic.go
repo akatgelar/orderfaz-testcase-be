@@ -48,7 +48,7 @@ func LogisticRead(c *gin.Context, logistic_name string, origin_name string, dest
 	}
  
 	// response
-	response := models.BaseResponse{Status: true, Message: "Create data success", Data: result}
+	response := models.BaseResponse{Status: true, Message: "Get data success", Data: result}
 	return response
 }
  
@@ -59,7 +59,7 @@ func LogisticRead(c *gin.Context, logistic_name string, origin_name string, dest
 // @Tags         Logistic
 // @Accept       json
 // @Produce      json
-// @Param        auth body  models.Logistics  true "logistic"
+// @Param        auth body  models.LogisticsCreate  true "logistic"
 // @Success      200  {object}  models.BaseResponse
 // @Failure      400  {object}  models.BaseResponse
 // @Failure      404  {object}  models.BaseResponse
